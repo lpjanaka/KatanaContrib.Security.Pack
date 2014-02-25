@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace KatanaContrib.Security.LinkedIn.Tests
 {
-    public  class MockLab
+    public  class MockOwinContext
     {
         public IOwinContext CreateStubOwinContext()
         {

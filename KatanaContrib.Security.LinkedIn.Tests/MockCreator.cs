@@ -11,7 +11,7 @@ namespace KatanaContrib.Security.LinkedIn.Tests
     {
         public static IOwinContext CreateOwinContext()
         {
-            MockLab mockLab = new MockLab();
+            MockOwinContext mockLab = new MockOwinContext();
             return mockLab.CreateStubOwinContext();
         }
     }

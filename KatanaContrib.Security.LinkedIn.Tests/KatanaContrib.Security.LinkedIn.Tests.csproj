@@ -85,7 +85,7 @@
   <ItemGroup>
     <Compile Include="LinkedInAuthenticationExtensionsTests.cs" />
     <Compile Include="MockCreator.cs" />
-    <Compile Include="MockLab.cs" />
+    <Compile Include="MockOwinContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LinkedInAuthenticatedContextTests.cs" />
     <Compile Include="LinkedInAuthenticationHandlerTests.cs" />
