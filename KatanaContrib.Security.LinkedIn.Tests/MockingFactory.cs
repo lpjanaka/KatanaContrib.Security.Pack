@@ -7,10 +7,11 @@ using Moq;
 using Microsoft.Owin;
 using System.Net.Http;
 using System.Threading;
+using Owin;
 
 namespace KatanaContrib.Security.LinkedIn.Tests
 {
-    public  class MockOwinContext
+    public  class MockingFactory
     {
         public IOwinContext CreateStubOwinContext()
         {
@@ -22,6 +23,11 @@ namespace KatanaContrib.Security.LinkedIn.Tests
             Mock<IOwinContext> mock = new Mock<IOwinContext>(MockBehavior.Strict);
             mock.Setup(c => c.Request).Returns(this.CreateDummyOwinRequest());
             return mock;
+        }
+
+        public IAppBuilder CreateDummyAppBuilder()
+        {
+            return new Mock<IAppBuilder>(MockBehavior.Strict).Object;
         }
 
         public IOwinRequest CreateDummyOwinRequest()

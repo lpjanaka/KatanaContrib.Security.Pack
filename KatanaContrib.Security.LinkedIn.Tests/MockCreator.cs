@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Owin;
+using Owin;
+using Moq;
 
 namespace KatanaContrib.Security.LinkedIn.Tests
 {
@@ -11,8 +13,14 @@ namespace KatanaContrib.Security.LinkedIn.Tests
     {
         public static IOwinContext CreateOwinContext()
         {
-            MockOwinContext mockLab = new MockOwinContext();
-            return mockLab.CreateStubOwinContext();
+            MockingFactory mockFactory = new MockingFactory();
+            return mockFactory.CreateStubOwinContext();
+        }
+
+        public static IAppBuilder CreateAppBuilder()
+        {
+            MockingFactory mockFactory = new MockingFactory();
+            return mockFactory.CreateDummyAppBuilder();
         }
     }
 }

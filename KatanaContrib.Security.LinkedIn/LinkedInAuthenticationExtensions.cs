@@ -1,5 +1,5 @@
-using System;
 using Owin;
+using System;
 
 namespace KatanaContrib.Security.LinkedIn
 {    
@@ -25,6 +25,16 @@ namespace KatanaContrib.Security.LinkedIn
             string apiKey,
             string secretKey)
         {
+            if(apiKey == null)
+            {
+                throw new ArgumentNullException("apiKey", "apiKey parameter is null");
+            }
+
+            if(secretKey == null)
+            {
+                throw new ArgumentNullException("secretKey", "secretKey parameter is null");
+            }
+
             return UseLinkedInAuthentication(
                 app,
                 new LinkedInAuthenticationOptions
