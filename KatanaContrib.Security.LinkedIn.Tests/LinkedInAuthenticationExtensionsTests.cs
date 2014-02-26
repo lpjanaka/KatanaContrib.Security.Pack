@@ -79,7 +79,47 @@ namespace KatanaContrib.Security.LinkedIn.Tests
             }
             catch (ArgumentNullException e)
             {
-                StringAssert.Contains(e.Message, "apiKey parameter is null");
+                StringAssert.Contains(e.Message, "apiKey parameter is not provided");
+                return;
+            }
+
+            Assert.Fail("No exception was thrown");
+        }
+
+        [TestMethod]
+        public void UseLinkedInAuthentication_WhenAPIKeyIsWhiteSpaces_ShouldThrowArgumentNullException()
+        {
+            string apiKey = "   ";
+            string apiSecret = "674gfhrg8346kjhgfrhre";
+            IAppBuilder app = MockCreator.CreateAppBuilder();
+
+            try
+            {
+                app.UseLinkedInAuthentication(apiKey, apiSecret);
+            }
+            catch (ArgumentNullException e)
+            {
+                StringAssert.Contains(e.Message, "apiKey parameter is not provided");
+                return;
+            }
+
+            Assert.Fail("No exception was thrown");
+        }
+
+        [TestMethod]
+        public void UseLinkedInAuthentication_WhenAPIKeyIsEmpty_ShouldThrowArgumentNullException()
+        {
+            string apiKey = "";
+            string apiSecret = "674gfhrg8346kjhgfrhre";
+            IAppBuilder app = MockCreator.CreateAppBuilder();
+
+            try
+            {
+                app.UseLinkedInAuthentication(apiKey, apiSecret);
+            }
+            catch (ArgumentNullException e)
+            {
+                StringAssert.Contains(e.Message, "apiKey parameter is not provided");
                 return;
             }
 
@@ -99,7 +139,47 @@ namespace KatanaContrib.Security.LinkedIn.Tests
             }
             catch (ArgumentNullException e)
             {
-                StringAssert.Contains(e.Message, "secretKey parameter is null");
+                StringAssert.Contains(e.Message, "secretKey parameter is not provided");
+                return;
+            }
+
+            Assert.Fail("No exception was thrown");
+        }
+
+        [TestMethod]
+        public void UseLinkedInAuthentication_WhenSecretKeyIsWhiteSpaces_ShouldThrowArgumentNullException()
+        {
+            string apiKey = "764ewytfrewu32646kghhi";
+            string apiSecret = "    ";
+            IAppBuilder app = MockCreator.CreateAppBuilder();
+
+            try
+            {
+                app.UseLinkedInAuthentication(apiKey, apiSecret);
+            }
+            catch (ArgumentNullException e)
+            {
+                StringAssert.Contains(e.Message, "secretKey parameter is not provided");
+                return;
+            }
+
+            Assert.Fail("No exception was thrown");
+        }
+
+        [TestMethod]
+        public void UseLinkedInAuthentication_WhenSecretKeyIsEmpty_ShouldThrowArgumentNullException()
+        {
+            string apiKey = "764ewytfrewu32646kghhi";
+            string apiSecret = "";
+            IAppBuilder app = MockCreator.CreateAppBuilder();
+
+            try
+            {
+                app.UseLinkedInAuthentication(apiKey, apiSecret);
+            }
+            catch (ArgumentNullException e)
+            {
+                StringAssert.Contains(e.Message, "secretKey parameter is not provided");
                 return;
             }
 

@@ -25,14 +25,14 @@ namespace KatanaContrib.Security.LinkedIn
             string apiKey,
             string secretKey)
         {
-            if(apiKey == null)
+            if(String.IsNullOrWhiteSpace(apiKey))
             {
-                throw new ArgumentNullException("apiKey", "apiKey parameter is null");
+                throw new ArgumentNullException("apiKey", "apiKey parameter is not provided");
             }
 
-            if(secretKey == null)
+            if(String.IsNullOrWhiteSpace(secretKey))
             {
-                throw new ArgumentNullException("secretKey", "secretKey parameter is null");
+                throw new ArgumentNullException("secretKey", "secretKey parameter is not provided");
             }
 
             return UseLinkedInAuthentication(
