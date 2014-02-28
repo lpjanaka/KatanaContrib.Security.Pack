@@ -18,6 +18,16 @@ namespace KatanaContrib.Security.LinkedIn.Tests
             return this.CreateOwinContextMock().Object;
         }
 
+        public IAppBuilder CreateStubAppBuilder()
+        {
+            return this.CreateAppBuilderMock().Object;
+        }
+
+        public OwinMiddleware CreateStubOwinMiddleware()
+        {
+            return this.CreateOwinMiddlewareMock().Object;
+        }
+
         public Mock<IOwinContext> CreateOwinContextMock()
         {
             Mock<IOwinContext> mock = new Mock<IOwinContext>(MockBehavior.Strict);
@@ -25,15 +35,31 @@ namespace KatanaContrib.Security.LinkedIn.Tests
             return mock;
         }
 
-        public IAppBuilder CreateDummyAppBuilder()
+        public Mock<IAppBuilder> CreateAppBuilderMock()
         {
-            return new Mock<IAppBuilder>(MockBehavior.Strict).Object;
+            LinkedInAuthenticationOptions options = new LinkedInAuthenticationOptions();
+
+            Mock<IAppBuilder> mockApp = new Mock<IAppBuilder>(MockBehavior.Strict);
+            mockApp.Setup(m => m.Use(typeof(LinkedInAuthenticationMiddleware), mockApp, options)).Returns(mockApp.Object);
+            return mockApp;
+            
+        }
+
+        public Mock<OwinMiddleware> CreateOwinMiddlewareMock()
+        {
+            IOwinContext context = this.CreateStubOwinContext();
+
+            Mock<OwinMiddleware> middleware = new Mock<OwinMiddleware>(MockBehavior.Strict, null);
+            middleware.Setup(m => m.Invoke(It.IsAny<IOwinContext>())).Returns(Task.FromResult(0));
+            return middleware;
         }
 
         public IOwinRequest CreateDummyOwinRequest()
         {
             return new Mock<IOwinRequest>(MockBehavior.Strict).Object;
         }
+
+        
     }
 
     public class FakeHttpMessageHandler : HttpMessageHandler

@@ -1,10 +1,10 @@
-using System;
-using System.Globalization;
-using System.Security.Claims;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Provider;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Globalization;
+using System.Security.Claims;
 
 namespace KatanaContrib.Security.LinkedIn.Provider
 {
@@ -50,17 +50,17 @@ namespace KatanaContrib.Security.LinkedIn.Provider
             {
                 throw new ArgumentNullException("user", "user is null");
             }
-            if (accessToken == null)
+            if (String.IsNullOrWhiteSpace(accessToken))
             {
-                throw new ArgumentNullException("accessToken", "access token is null");
+                throw new ArgumentNullException("accessToken", "access token is not provided");
             }
             if (context == null)
             {
                 throw new ArgumentNullException("context", "context is null");
             }
-            if (expires == null)
+            if (String.IsNullOrWhiteSpace(expires))
             {
-                throw new ArgumentNullException("expires", "expires parameter is null");
+                throw new ArgumentNullException("expires", "expires parameter is not provided");
             }
             if (Int32.TryParse(expires, NumberStyles.Integer, CultureInfo.InvariantCulture, out _expiresValue))
             {

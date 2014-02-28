@@ -55,7 +55,57 @@ namespace KatanaContrib.Security.LinkedIn.Tests
             }
             catch (ArgumentNullException e)
             {
-                StringAssert.Contains(e.Message, "access token is null");
+                StringAssert.Contains(e.Message, "access token is not provided");
+                return;
+            }
+
+            Assert.Fail("No exception was thrown");
+        }
+
+        /// <summary>
+        ///  A test to verify when parameter named 'accessToken' is white spaces, an exception of type ArgumentNullException should be thrown.
+        /// </summary>
+        [TestMethod]
+        public void LinkedInAuthenticatedContext_WhenAccessTokenParameterIsWhiteSpaces_ShouldThrowArgumentNullException()
+        {
+            IOwinContext context = MockCreator.CreateOwinContext();
+            string userInfo = "{\"id\":\"3lwM3bUvfJ\",\"first-name\":\"Nirosha\",\"last-name\":\"Gihan\",\"formatted-name\":\"Nirosha Gihan\"}";
+            JObject user = JObject.Parse(userInfo);
+            string accessToken = "    ";
+            string expires = "3600";
+
+            try
+            {
+                LinkedInAuthenticatedContext linkedinContext = new LinkedInAuthenticatedContext(context, user, accessToken, expires);
+            }
+            catch (ArgumentNullException e)
+            {
+                StringAssert.Contains(e.Message, "access token is not provided");
+                return;
+            }
+
+            Assert.Fail("No exception was thrown");
+        }
+
+        /// <summary>
+        ///  A test to verify when parameter named 'accessToken' is an empty string, an exception of type ArgumentNullException should be thrown.
+        /// </summary>
+        [TestMethod]
+        public void LinkedInAuthenticatedContext_WhenAccessTokenParameterIsEmpty_ShouldThrowArgumentNullException()
+        {
+            IOwinContext context = MockCreator.CreateOwinContext();
+            string userInfo = "{\"id\":\"3lwM3bUvfJ\",\"first-name\":\"Nirosha\",\"last-name\":\"Gihan\",\"formatted-name\":\"Nirosha Gihan\"}";
+            JObject user = JObject.Parse(userInfo);
+            string accessToken = string.Empty;
+            string expires = "3600";
+
+            try
+            {
+                LinkedInAuthenticatedContext linkedinContext = new LinkedInAuthenticatedContext(context, user, accessToken, expires);
+            }
+            catch (ArgumentNullException e)
+            {
+                StringAssert.Contains(e.Message, "access token is not provided");
                 return;
             }
 
@@ -105,7 +155,57 @@ namespace KatanaContrib.Security.LinkedIn.Tests
             }
             catch (ArgumentNullException e)
             {
-                StringAssert.Contains(e.Message, "expires parameter is null");
+                StringAssert.Contains(e.Message, "expires parameter is not provided");
+                return;
+            }
+
+            Assert.Fail("No exception was thrown");
+        }
+
+        /// <summary>
+        /// A test to verify when the parameter named 'Expires' is an empty string, an exception of type ArgumentNullException should be thrown.
+        /// </summary>
+        [TestMethod]
+        public void LinkedInAuthenticatedContext_WhenExpiresParameterIsEmpty_ShouldThrowArgumentNullException()
+        {
+            IOwinContext context = MockCreator.CreateOwinContext();
+            string userInfo = "{\"id\":\"3lwM3bUvfJ\",\"first-name\":\"Nirosha\",\"last-name\":\"Gihan\",\"formatted-name\":\"Nirosha Gihan\"}";
+            JObject user = JObject.Parse(userInfo);
+            string accessToken = "7654hjgsgf384hjgfvfdsk3847bhfjvh3485634";
+            string expires = String.Empty;
+
+            try
+            {
+                LinkedInAuthenticatedContext linkedinContext = new LinkedInAuthenticatedContext(context, user, accessToken, expires);
+            }
+            catch (ArgumentNullException e)
+            {
+                StringAssert.Contains(e.Message, "expires parameter is not provided");
+                return;
+            }
+
+            Assert.Fail("No exception was thrown");
+        }
+
+        /// <summary>
+        /// A test to verify when the parameter named 'Expires' is null, an exception of type ArgumentNullException should be thrown.
+        /// </summary>
+        [TestMethod]
+        public void LinkedInAuthenticatedContext_WhenExpiresParameterIsWhiteSpaces_ShouldThrowArgumentNullException()
+        {
+            IOwinContext context = MockCreator.CreateOwinContext();
+            string userInfo = "{\"id\":\"3lwM3bUvfJ\",\"first-name\":\"Nirosha\",\"last-name\":\"Gihan\",\"formatted-name\":\"Nirosha Gihan\"}";
+            JObject user = JObject.Parse(userInfo);
+            string accessToken = "7654hjgsgf384hjgfvfdsk3847bhfjvh3485634";
+            string expires = "    ";
+
+            try
+            {
+                LinkedInAuthenticatedContext linkedinContext = new LinkedInAuthenticatedContext(context, user, accessToken, expires);
+            }
+            catch (ArgumentNullException e)
+            {
+                StringAssert.Contains(e.Message, "expires parameter is not provided");
                 return;
             }
 
@@ -116,7 +216,7 @@ namespace KatanaContrib.Security.LinkedIn.Tests
         /// A test to verify when the parameter 'expires' is not a number, an exception of type ArgumentOutofRange exception should be thrown.
         /// </summary>
         [TestMethod]
-        public void LinkedInAuthenticatedContext_WhenExpiresParameterIsNotaNumber_ShouldThrowArgumentOutOfRangeException()
+        public void LinkedInAuthenticatedContext_WhenExpiresParameterIsNotNumber_ShouldThrowArgumentOutOfRangeException()
         {
             IOwinContext context = MockCreator.CreateOwinContext();
             string userInfo = "{\"id\":\"3lwM3bUvfJ\",\"first-name\":\"Nirosha\",\"last-name\":\"Gihan\",\"formatted-name\":\"Nirosha Gihan\"}";
