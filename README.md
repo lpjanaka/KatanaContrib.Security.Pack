@@ -259,6 +259,48 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
+####07. StackExchange####
+
+KatanaContrib.Security.StackExchange will be included in the KatanaContrib.Security.Pack. It provides a Katana middleware that supports the StackExchange authentication flow. The **KatanaContrib.Security.StackExchange** was designed and implemented similar to **Microsoft.Owin.Security.Facebook** and **Microsoft.Owin.Security.Twitter**. This allows you to use it the same way as the security middlewares provided by Microsoft. 
+
+If you intend to use StackExchange authentication provider only without installing the full pack, you can just install **KatanaContrib.Security.StackExchange** by running the following command in the Package Manager Console in Visual Studio.
+`Install-Package KatanaContrib.Security.StackExchange`
+
+A couple of actions will need to be done under the **App_Start** folder in the **Startup.Auth.cs** file :
+
+ - Add namespace `using KatanaContrib.Security.StackExchange;`
+ - In the `ConfigureAuth` call the corresponding *apps* extention method and pass your params:
+
+```csharp
+public void ConfigureAuth(IAppBuilder app)
+{
+        //... custom code ..
+
+        app.UseStackExchangeuthentication("YOUR_APP_KEY", "YOUR_APP_SECRET_KEY");
+
+        //... custom code ...
+}
+```
+
+ - If you need to pass more params application scope for instance pass a `StackExchangeAuthenticationOptions` object as param:
+```csharp
+public void ConfigureAuth(IAppBuilder app)
+{
+        //... custom code ..
+
+        app.UseStackExchangeAuthentication(new StackExchangeAuthenticationOptions()
+        {
+                AppId = "YOUR_APP_API_KEY",
+                AppSecret = "YOUR_APP_SECRET_KEY",
+                CallbackPath = new PathString("/Your-StackExchange-Callback-Endpoint"),
+                Caption = "My StackExchange",
+        });
+
+
+        //... custom code ...
+}
+```
+
 Contribution
 -------------
  - If you have something to contribute or you feel like contributing ping me here [@dkillewo](https://twitter.com/dkillewo)
