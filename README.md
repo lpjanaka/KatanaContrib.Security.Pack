@@ -1,7 +1,7 @@
 KatanaContrib.Security.Pack
 =========================
 
-KatanaContrib.Security.Pack is nuget package for adding all the KatanaContrib authentication providers to your project
+**KatanaContrib.Security.Pack** is nuget package for adding all the KatanaContrib authentication providers to your project
 
 In order to add it to your project or solution run the `Install-Package KatanaContrib.Security.Pack` command from the NuGet Package Manager console in Visual Studio. 
 
@@ -9,7 +9,7 @@ After this all the nuget packages of the implemented authentication middleware i
 
 ####01. Dropbox####
 
-KatanaContrib.Security.Dropbox will be included in the KatanaContrib.Security.Pack. It provides a Katana middleware that supports the Dropbox authentication flow. The **OwinContrib.Security.Dropbox** was designed and implemented similar to **Microsoft.Owin.Security.Facebook** and **Microsoft.Owin.Security.Twitter**. This allows you to use it the same way as the security middlewares provided by Microsoft. 
+KatanaContrib.Security.Dropbox will be included in the KatanaContrib.Security.Pack. It provides a Katana middleware that supports the Dropbox authentication flow. The **KatanaContrib.Security.Dropbox** was designed and implemented similar to **Microsoft.Owin.Security.Facebook** and **Microsoft.Owin.Security.Twitter**. This allows you to use it the same way as the security middlewares provided by Microsoft. 
 
 If you intend to use Dropbox authentication provider only without installing the full pack, you can just install **KatanaContrib.Security.Dropbox** by running the following command in the Package Manager Console in Visual Studio.
 `Install-Package KatanaContrib.Security.Dropbox`
