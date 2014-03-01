@@ -5,7 +5,17 @@ KatanaContrib.Security.Pack
 
 In order to add it to your project or solution run the `Install-Package KatanaContrib.Security.Pack` command from the NuGet Package Manager console in Visual Studio. 
 
-After this all the nuget packages of the implemented authentication middleware in KatanaContrib will be added to your project. 
+After this all the nuget packages of the implemented authentication middleware in KatanaContrib will be added to your project. Following is a list of Authentication Providers that will be included in the package.
+
+ 1. Dropbox
+ 2. Foursquare
+ 3. Github
+ 4. Instagram
+ 5. LinkedIn
+ 6. Meetup
+ 7. StackExchange
+
+Following is a brief introduction to each of the providers included in the package.
 
 ####01. Dropbox####
 
