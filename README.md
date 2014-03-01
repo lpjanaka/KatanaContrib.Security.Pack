@@ -51,7 +51,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 ####02. Foursquare####
 
-KatanaContrib.Security.Foursquare will be included in the KatanaContrib.Security.Pack. It provides a Katana middleware that supports the Foursquare authentication flow. The **OwinContrib.Security.Foursquare** was designed and implemented similar to **Microsoft.Owin.Security.Facebook** and **Microsoft.Owin.Security.Twitter**. This allows you to use it the same way as the security middlewares provided by Microsoft. 
+KatanaContrib.Security.Foursquare will be included in the KatanaContrib.Security.Pack. It provides a Katana middleware that supports the Foursquare authentication flow. The **KatanaContrib.Security.Foursquare** was designed and implemented similar to **Microsoft.Owin.Security.Facebook** and **Microsoft.Owin.Security.Twitter**. This allows you to use it the same way as the security middlewares provided by Microsoft. 
 
 If you intend to use Foursquare authentication provider only without installing the full pack, you can just install **KatanaContrib.Security.Dropbox** by running the following command in the Package Manager Console in Visual Studio.
 `Install-Package KatanaContrib.Security.Foursquare`
@@ -91,7 +91,173 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
+####03. Github####
 
+KatanaContrib.Security.Github will be included in the KatanaContrib.Security.Pack. It provides a Katana middleware that supports the Github authentication flow. The **KatanaContrib.Security.Github** was designed and implemented similar to **Microsoft.Owin.Security.Facebook** and **Microsoft.Owin.Security.Twitter**. This allows you to use it the same way as the security middlewares provided by Microsoft. 
+
+If you intend to use Github authentication provider only, without installing the full pack, you can just install **KatanaContrib.Security.Github** by running the following command in the Package Manager Console in Visual Studio.
+`Install-Package KatanaContrib.Security.Github`
+
+A couple of actions will need to be done under the **App_Start** folder in the **Startup.Auth.cs** file :
+
+ - Add namespace `using KatanaContrib.Security.Github;`
+ - In the `ConfigureAuth` call the corresponding *apps* extention method and pass your params:
+
+```csharp
+public void ConfigureAuth(IAppBuilder app)
+{
+        //... custom code ..
+
+        app.UseGithubAuthentication("YOUR_APP_KEY", "YOUR_APP_SECRET_KEY");
+
+        //... custom code ...
+}
+```
+
+ - If you need to pass more params application scope for instance pass a `GithubAuthenticationOptions` object as param:
+```csharp
+public void ConfigureAuth(IAppBuilder app)
+{
+        //... custom code ..
+
+        app.UseGithubAuthentication(new GithubAuthenticationOptions()
+        {
+                AppId = "YOUR_APP_API_KEY",
+                AppSecret = "YOUR_APP_SECRET_KEY",
+                CallbackPath = new PathString("/Your-Github-Callback-Endpoint"),
+                Caption = "My Github,
+        });
+
+
+        //... custom code ...
+}
+```
+
+####04. Instagram####
+
+KatanaContrib.Security.Instagram will be included in the KatanaContrib.Security.Pack. It provides a Katana middleware that supports the Instagram authentication flow. The **KatanaContrib.Security.Instagram** was designed and implemented similar to **Microsoft.Owin.Security.Facebook** and **Microsoft.Owin.Security.Twitter**. This allows you to use it the same way as the security middlewares provided by Microsoft. 
+
+If you intend to use Instagram authentication provider only without installing the full pack, you can just install **KatanaContrib.Security.Instagram** by running the following command in the Package Manager Console in Visual Studio.
+`Install-Package KatanaContrib.Security.Instagram`
+
+A couple of actions will need to be done under the **App_Start** folder in the **Startup.Auth.cs** file :
+
+ - Add namespace `using KatanaContrib.Security.Instagram;`
+ - In the `ConfigureAuth` call the corresponding *apps* extention method and pass your params:
+
+```csharp
+public void ConfigureAuth(IAppBuilder app)
+{
+        //... custom code ..
+
+        app.UseInstagramAuthentication("YOUR_APP_KEY", "YOUR_APP_SECRET_KEY");
+
+        //... custom code ...
+}
+```
+
+ - If you need to pass more params application scope for instance pass a `InstagramAuthenticationOptions` object as param:
+```csharp
+public void ConfigureAuth(IAppBuilder app)
+{
+        //... custom code ..
+
+        app.UseInstagramAuthentication(new InstagramAuthenticationOptions()
+        {
+                AppId = "YOUR_APP_API_KEY",
+                AppSecret = "YOUR_APP_SECRET_KEY",
+                CallbackPath = new PathString("/Your-Instagram-Callback-Endpoint"),
+                Caption = "My Instagram",
+        });
+
+
+        //... custom code ...
+}
+```
+
+####05. LinkedIn####
+
+KatanaContrib.Security.LinkedIn will be included in the KatanaContrib.Security.Pack. It provides a Katana middleware that supports the LinkedIn authentication flow. The **KatanaContrib.Security.LinkedIn** was designed and implemented similar to **Microsoft.Owin.Security.Facebook** and **Microsoft.Owin.Security.Twitter**. This allows you to use it the same way as the security middlewares provided by Microsoft. 
+
+If you intend to use LinkedIn authentication provider only without installing the full pack, you can just install **KatanaContrib.Security.LinkedIn** by running the following command in the Package Manager Console in Visual Studio.
+`Install-Package KatanaContrib.Security.LinkedIn`
+
+A couple of actions will need to be done under the **App_Start** folder in the **Startup.Auth.cs** file :
+
+ - Add namespace `using KatanaContrib.Security.LinkedIn;`
+ - In the `ConfigureAuth` call the corresponding *apps* extention method and pass your params:
+
+```csharp
+public void ConfigureAuth(IAppBuilder app)
+{
+        //... custom code ..
+
+        app.UseLinkedInAuthentication("YOUR_APP_KEY", "YOUR_APP_SECRET_KEY");
+
+        //... custom code ...
+}
+```
+
+ - If you need to pass more params application scope for instance pass a `LinkedInAuthenticationOptions` object as param:
+```csharp
+public void ConfigureAuth(IAppBuilder app)
+{
+        //... custom code ..
+
+        app.UseLinkedInAuthentication(new LinkedInAuthenticationOptions()
+        {
+                AppId = "YOUR_APP_API_KEY",
+                AppSecret = "YOUR_APP_SECRET_KEY",
+                CallbackPath = new PathString("/Your-LinkedIn-Callback-Endpoint"),
+                Caption = "My LinkedIn",
+        });
+
+
+        //... custom code ...
+}
+```
+
+####06. Meetup####
+
+KatanaContrib.Security.Meetup will be included in the KatanaContrib.Security.Pack. It provides a Katana middleware that supports the Meetup authentication flow. The **KatanaContrib.Security.Meetup** was designed and implemented similar to **Microsoft.Owin.Security.Facebook** and **Microsoft.Owin.Security.Twitter**. This allows you to use it the same way as the security middlewares provided by Microsoft. 
+
+If you intend to use Meetup authentication provider only without installing the full pack, you can just install **KatanaContrib.Security.Meetup** by running the following command in the Package Manager Console in Visual Studio.
+`Install-Package KatanaContrib.Security.Meetup`
+
+A couple of actions will need to be done under the **App_Start** folder in the **Startup.Auth.cs** file :
+
+ - Add namespace `using KatanaContrib.Security.Meetup;`
+ - In the `ConfigureAuth` call the corresponding *apps* extention method and pass your params:
+
+```csharp
+public void ConfigureAuth(IAppBuilder app)
+{
+        //... custom code ..
+
+        app.UseMeetupAuthentication("YOUR_APP_KEY", "YOUR_APP_SECRET_KEY");
+
+        //... custom code ...
+}
+```
+
+ - If you need to pass more params application scope for instance pass a `MeetupAuthenticationOptions` object as param:
+```csharp
+public void ConfigureAuth(IAppBuilder app)
+{
+        //... custom code ..
+
+        app.UseMeetupAuthentication(new MeetupAuthenticationOptions()
+        {
+                AppId = "YOUR_APP_API_KEY",
+                AppSecret = "YOUR_APP_SECRET_KEY",
+                CallbackPath = new PathString("/Your-Meetup-Callback-Endpoint"),
+                Caption = "My Meetup",
+        });
+
+
+        //... custom code ...
+}
+```
 
 Contribution
 -------------
