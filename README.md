@@ -10,7 +10,7 @@ This simplifies the installation and the management of KatanaContrib packages by
 ASP.NET MVC 5 has an inbuilt support for login with **Google, Facebook, Microsoft** and **Twitter**. But it still doesn't provide login with other major social networking sites such as **LinkedIn, Instagram, Github** etc. It was a huge drawback for the developers to concentrate on developing these additional login providers in their web applications. And the implementation of those login providers with different techniques, affected the code consistency and the performance of the web application.
 
 ##Solution##
-As a solution to the above problem, we decided to implement the remaining login providers with MVC 5. So now the developers are only a single click away from adding these functionality to their web applications. At the moment we are ready with the following providers. This list will grow in the near future.
+As a solution to the above problem, we decided to implement the remaining login providers with MVC 5. So now the developers are only a single click away from adding these functionality to their web applications. At the moment we are ready with the following providers. This list will grow in near future.
 
  1. [Dropbox](http://www.nuget.org/packages/KatanaContrib.Security.Dropbox)
  2. [Foursquare](http://www.nuget.org/packages/KatanaContrib.Security.Foursquare)
