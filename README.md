@@ -1,11 +1,16 @@
 KatanaContrib.Security.Pack
 =========================
 
-**KatanaContrib.Security.Pack** is nuget package for adding all the KatanaContrib authentication providers to your project
+##Introduction##
 
-In order to add it to your project or solution run the `Install-Package KatanaContrib.Security.Pack` command from the NuGet Package Manager console in Visual Studio. 
+**KatanaContrib.Security.Pack** is a nuget package for adding all the KatanaContrib Authentication Providers to your project as a single pack. So you don't need to install each and every KatanaContrib Authentication packages one by one.
+This simplifies the installation and the management of KatanaContrib packages by providing them as a single package.
 
-After this all the nuget packages of the implemented authentication middleware in KatanaContrib will be added to your project. Following is a list of Authentication Providers that will be included in the package.
+##Problem##
+ASP.NET MVC 5 has an inbuilt support for login with Google, Facebook, Microsoft and Twitter. But it still doesn't provide login with other major social networking sites such as LinkedIn, Instagram, Github etc. It was a huge disadvantage for the developers to concentrate on developing these additional login providers in their web applications.
+
+##Solution##
+As a solution to the above problem, we decided to implement the remaining login providers with MVC 5. So now the developers are only a single click away from adding these functionality to their web applications. Currently we are ready with the following providers. 
 
  1. Dropbox
  2. Foursquare
@@ -14,6 +19,15 @@ After this all the nuget packages of the implemented authentication middleware i
  5. LinkedIn
  6. Meetup
  7. StackExchange
+
+##Technology##
+We have used oauth 1.0a and oauth 2.0 for the implementation of these login providers with MVC 5. 
+
+##How to Use##
+
+In order to add it to your project or solution run the `Install-Package KatanaContrib.Security.Pack` command from the NuGet Package Manager console in Visual Studio. 
+
+After this all the nuget packages of the implemented authentication middleware in KatanaContrib will be added to your project.
 
 Following is a brief introduction to each of the providers included in the package.
 
