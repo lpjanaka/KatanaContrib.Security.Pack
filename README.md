@@ -3,7 +3,7 @@ KatanaContrib.Security.Pack
 
 ##Introduction##
 
-**KatanaContrib.Security.Pack** is a nuget package for adding all the KatanaContrib Authentication Providers to your project as a single pack. So you don't need to install each and every KatanaContrib Authentication packages one by one.
+**[KatanaContrib.Security.Pack](http://www.nuget.org/packages/KatanaContrib.Security.Pack)** is a nuget package for adding all the KatanaContrib Authentication Providers to your project as a single pack. So you don't need to install each and every KatanaContrib Authentication packages one by one.
 This simplifies the installation and the management of KatanaContrib packages by providing them as a single package.
 
 ##Problem##
@@ -12,13 +12,13 @@ ASP.NET MVC 5 has an inbuilt support for login with **Google, Facebook, Microsof
 ##Solution##
 As a solution to the above problem, we decided to implement the remaining login providers with MVC 5. So now the developers are only a single click away from adding these functionality to their web applications. At the moment we are ready with the following providers. This list will grow in the near future.
 
- 1. Dropbox
- 2. Foursquare
- 3. Github
- 4. Instagram
- 5. LinkedIn
- 6. Meetup
- 7. StackExchange
+ 1. [Dropbox](http://www.nuget.org/packages/KatanaContrib.Security.Dropbox)
+ 2. [Foursquare](http://www.nuget.org/packages/KatanaContrib.Security.Foursquare)
+ 3. [Github](http://www.nuget.org/packages/KatanaContrib.Security.Github)
+ 4. [Instagram](http://www.nuget.org/packages/KatanaContrib.Security.Instagram)
+ 5. [LinkedIn](http://www.nuget.org/packages/KatanaContrib.Security.LinkedIn)
+ 6. [Meetup](http://www.nuget.org/packages/KatanaContrib.Security.Meetup)
+ 7. [StackExchange](http://www.nuget.org/packages/KatanaContrib.Security.StackExchange)
 
 ##Technology##
 We have used **OAUTH 1.0a** and **OAUTH 2.0** for the implementation of these login providers with **Owin Katana**. Also we used the same code patterns used in the original implementation of the Katana Login Providers developed by Microsoft Katana team.
