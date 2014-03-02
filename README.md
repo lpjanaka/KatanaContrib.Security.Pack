@@ -7,7 +7,7 @@ KatanaContrib.Security.Pack
 This simplifies the installation and the management of KatanaContrib packages by providing them as a single package.
 
 ##Problem##
-ASP.NET MVC 5 has an inbuilt support for login with Google, Facebook, Microsoft and Twitter. But it still doesn't provide login with other major social networking sites such as LinkedIn, Instagram, Github etc. It was a huge drawback for the developers to concentrate on developing these additional login providers in their web applications.
+ASP.NET MVC 5 has an inbuilt support for login with **Google, Facebook, Microsoft** and **Twitter**. But it still doesn't provide login with other major social networking sites such as **LinkedIn, Instagram, Github** etc. It was a huge drawback for the developers to concentrate on developing these additional login providers in their web applications. And the implementation of those login providers with different techniques, affected the code consistency and the performance of the web application.
 
 ##Solution##
 As a solution to the above problem, we decided to implement the remaining login providers with MVC 5. So now the developers are only a single click away from adding these functionality to their web applications. At the moment we are ready with the following providers. This list will grow in the near future.
@@ -21,7 +21,7 @@ As a solution to the above problem, we decided to implement the remaining login 
  7. StackExchange
 
 ##Technology##
-We have used oauth 1.0a and oauth 2.0 for the implementation of these login providers with Owin Katana. 
+We have used **OAUTH 1.0a** and **OAUTH 2.0** for the implementation of these login providers with **Owin Katana**. Also we used the same code patterns used in the original implementation of the Katana Login Providers developed by Microsoft Katana team.
 
 ##How to Use##
 
